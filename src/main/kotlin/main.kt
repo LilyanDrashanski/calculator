@@ -5,17 +5,8 @@ fun main() {
 
     println("To exit press Enter")
 
-    val calculator = Calculator()
-
     while (true) {
-
-        val sign = signInput()
-
-        val number = numberInput()
-
-        val result = calculator.calculate(number, sign)
-        println(result)
-
+        Test.ADD.calculator()
     }
 }
 
@@ -37,20 +28,19 @@ fun numberInput(): Double {
     }
 }
 
-fun signInput(): String {
-    val signs = listOf("+", "-", "*", "/")
+fun signInput(): Test {
     println("Enter sign")
-    val sign = readln()
+    val sign: String = readln()
 
-    if (sign == "") exitProcess(0)
-
-
-    return if (sign in signs) {
-        sign
-    } else {
-        println("Invalid input")
-        signInput()
+    return when (sign) {
+        "+" -> Test.ADD
+        "-" -> Test.SUBTRACT
+        "*" -> Test.MULTIPLY
+        "/" -> Test.DIVIDE
+        "" -> Test.END
+        else -> {
+            println("Invalid input")
+            signInput()
+        }
     }
 }
-
-
