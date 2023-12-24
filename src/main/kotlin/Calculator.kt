@@ -1,23 +1,13 @@
-enum class Calculator(private val sign: String) {
+class Calculator() {
+    private var sum = numberInput()
 
-    ADD("+"),
-    MULTIPLY("*"),
-    SUBTRACT("-"),
-    DIVIDE("/");
-
-    companion object {
-        var sum = numberInput()
-    }
-
-    fun calculator() {
-        val sign = signInput()
-        val number = numberInput()
+    fun calculator(sign: String, number: Double) {
 
         when (sign) {
-            ADD.sign -> sum += number
-            MULTIPLY.sign -> sum *= number
-            SUBTRACT.sign -> sum -= number
-            DIVIDE.sign -> sum /= number
+            Signs.ADD.sign -> sum += number
+            Signs.MULTIPLY.sign -> sum *= number
+            Signs.SUBTRACT.sign -> sum -= number
+            Signs.DIVIDE.sign -> sum /= number
         }
         println(sum)
     }

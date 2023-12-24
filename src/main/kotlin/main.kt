@@ -4,9 +4,14 @@ import kotlin.system.exitProcess
 fun main() {
 
     println("To exit press Enter")
+    val calculator = Calculator()
 
     while (true) {
-        Calculator.ADD.calculator()
+
+        val sign = signInput()
+        val number = numberInput()
+
+        calculator.calculator(sign, number)
     }
 }
 
