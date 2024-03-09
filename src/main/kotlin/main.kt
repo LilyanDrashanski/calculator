@@ -1,47 +1,49 @@
-import java.lang.Exception
 import kotlin.system.exitProcess
 
 fun main() {
 
     println("To exit press Enter")
-    val calculator = Calculator()
 
-    while (true) {
+    when (val calculator = calculatorType()) {
 
-        val sign = signInput()
-        val number = numberInput()
+        is BinaryCalculator -> {
+            while (true){
+                calculator.calculate()
+            }
+        }
 
-        calculator.calculator(sign, number)
+        is NumericalCalculator -> {
+            while (true) {
+                calculator.calculate()
+            }
+        }
     }
 }
 
 
-fun numberInput(): Double {
-    println("Enter number")
+fun calculatorType(): Calculators {
 
-    val numberInput = readln()
-    val saveNumber: Double
+    val calculators = arrayOf("Binary", "Numerical")
 
-    return try {
-        saveNumber = numberInput.toDouble()
-        saveNumber
-    } catch (e: Exception) {
-        println("Invalid output")
-        numberInput()
+    println("\nEnter type of calculator you want to use")
+    println("Options: ${calculators.joinToString(", ")}")
+
+    var input = readln()
+
+    if (input == "") exitProcess(0)
+
+    while (input !in calculators) {
+        println("Invalid Choice. Please choose from ${calculators.joinToString(", ")}")
+        input = readln()
+
+    }
+
+
+    return when (input) {
+        "Binary" -> BinaryCalculator()
+        "Numerical" -> NumericalCalculator()
+        else -> throw IllegalArgumentException("Unknown calculator type: $input")
     }
 }
 
-fun signInput(): String {
-    val signs = listOf("+", "-", "*", "/")
-    println("Enter sign")
-    val sign = readln()
 
-    if (sign == "") exitProcess(0)
-
-    return if (sign in signs) {
-        sign
-    } else {
-        println("Invalid input")
-        signInput()
-    }
-}

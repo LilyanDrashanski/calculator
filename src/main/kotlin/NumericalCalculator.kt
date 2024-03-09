@@ -1,10 +1,12 @@
 import kotlin.math.round
 
 
-class Calculator(): Calculators {
+class NumericalCalculator : Calculators {
     private var sum = NumberInput().input()
 
-    fun calculator(sign: String, number: Double) {
+    override fun calculate() {
+        val sign = SignInput().input()
+        val number = NumberInput().input()
 
         when (sign) {
             Signs.ADD.sign -> sum += number
@@ -14,10 +16,6 @@ class Calculator(): Calculators {
             Signs.MODULE.sign -> sum %= number
         }
         println(round(sum))
-    }
-
-    override fun calculate() {
-        TODO("Not yet implemented")
     }
 }
 
