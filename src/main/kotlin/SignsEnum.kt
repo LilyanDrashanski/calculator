@@ -1,4 +1,4 @@
-enum class Signs(val sign: String) {
+enum class SignsEnum(val sign: String) {
     ADD("+"),
     MULTIPLY("*"),
     SUBTRACT("-"),

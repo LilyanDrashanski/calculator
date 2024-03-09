@@ -9,11 +9,11 @@ class NumericalCalculator : Calculators {
         val number = NumberInput().input()
 
         when (sign) {
-            Signs.ADD.sign -> sum += number
-            Signs.MULTIPLY.sign -> sum *= number
-            Signs.SUBTRACT.sign -> sum -= number
-            Signs.DIVIDE.sign -> sum /= number
-            Signs.MODULE.sign -> sum %= number
+            SignsEnum.ADD.sign -> sum += number
+            SignsEnum.MULTIPLY.sign -> sum *= number
+            SignsEnum.SUBTRACT.sign -> sum -= number
+            SignsEnum.DIVIDE.sign -> sum /= number
+            SignsEnum.MODULE.sign -> sum %= number
         }
         println(round(sum))
     }
