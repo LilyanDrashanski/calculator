@@ -1,35 +1,26 @@
 import kotlin.system.exitProcess
 
-class BinaryCalculator() : Calculators {
-
-    private fun wordToNumber(): MutableList<Int> {
-
-        println("\nEnter the value you want to be converted to binary")
-        val str = readln()
-
-        if (str == "") exitProcess(0)
-
-        val iterator = str.iterator()
-
-        val numbers: MutableList<Int> = mutableListOf()
-
-
-
-        while (iterator.hasNext()) {
-            val char = iterator.next()
-            numbers.add(char.code)
-        }
-
-        return numbers
-    }
-
+class BinaryCalculator : Calculators {
     override fun calculate() {
 
-        val numbers = wordToNumber()
+        println("\nEnter the value you want to be converted to binary")
+        val input = readln()
 
-        for (number in numbers) {
-            print("${Integer.toBinaryString(number)} ")
+
+        if (input == "") exitProcess(0)
+
+        try {
+            val number = input.toInt()
+            println(Integer.toBinaryString(number))
+        } catch (e: Exception) {
+
+            for (char in input) {
+
+                val asciiValue = char.code
+
+                print("${Integer.toBinaryString(asciiValue)} ")
+            }
+
         }
     }
-
 }

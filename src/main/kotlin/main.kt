@@ -23,12 +23,12 @@ fun main() {
 
 fun calculatorType(): Calculators {
 
-    val calculators = arrayOf("Binary", "Numerical")
+    val calculators = arrayOf("BINARY", "NUMERICAL")
 
     println("\nEnter type of calculator you want to use")
     println("Options: ${calculators.joinToString(", ")}")
 
-    var input = readln()
+    var input = readln().uppercase()
 
     if (input == "") exitProcess(0)
 
@@ -40,10 +40,12 @@ fun calculatorType(): Calculators {
 
 
     return when (input) {
-        "Binary" -> BinaryCalculator()
-        "Numerical" -> NumericalCalculator()
+        "BINARY" -> BinaryCalculator()
+        "NUMERICAL" -> NumericalCalculator()
         else -> throw IllegalArgumentException("Unknown calculator type: $input")
     }
 }
+
+
 
 
