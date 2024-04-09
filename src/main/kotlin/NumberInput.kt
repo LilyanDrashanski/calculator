@@ -9,9 +9,8 @@ class NumberInput {
         val numberInput = readln()
         val saveNumber: Double
 
-        if (numberInput == ""){
-            exitProcess(0)
-        }
+        require(numberInput !=""){"End of program"}
+
 
         return try {
             saveNumber = numberInput.toDouble()

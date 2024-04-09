@@ -1,11 +1,17 @@
+import kotlin.math.sign
 import kotlin.system.exitProcess
 
 class SignInput {
     fun input(): String {
         val signs = arrayOf("+", "-", "*", "/","%")
         println("Enter sign")
-        return when (val sign = readln()) {
-            "" -> exitProcess(0)
+
+        val sign = readln()
+
+        require(sign != ""){"End of program"}
+
+
+        return when (sign) {
             in signs -> {
                 sign
             }

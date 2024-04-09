@@ -1,4 +1,3 @@
-import kotlin.system.exitProcess
 
 class BinaryCalculator : Calculators {
     override fun calculate() {
@@ -7,7 +6,7 @@ class BinaryCalculator : Calculators {
         val input = readln()
 
 
-        if (input == "") exitProcess(0)
+        require(input !=""){"End of program"}
 
         try {
             val number = input.toInt()

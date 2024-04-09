@@ -11,19 +11,16 @@ class ChooseCalculator {
 
         var input = readln().uppercase()
 
-        if (input == "") exitProcess(0)
-
-        while (input !in calculators) {
-            println("Invalid Choice. Please choose from ${calculators.joinToString(", ")}")
-            input = readln()
-
-        }
-
+        require(input != "") { "End of program" }
 
         return when (input) {
             "BINARY" -> BinaryCalculator()
             "NUMERICAL" -> NumericalCalculator()
-            else -> throw IllegalArgumentException("Unknown calculator type: $input")
+            else -> {
+                println("Invalid Choice")
+                calculatorType()
+            }
+
         }
     }
 }
