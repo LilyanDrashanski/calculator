@@ -1,21 +1,18 @@
-import kotlin.math.round
+class NumericalCalculator {
 
 
-class NumericalCalculator : Calculators {
-    private var sum = NumberInput().input()
+    fun calculate(number: Double, operator: String, result: Double): Double {
 
-    override fun calculate() {
-        val sign = SignInput().input()
-        val number = NumberInput().input()
+        var sum = result
 
-        when (sign) {
+        when (operator) {
             SignsEnum.ADD.sign -> sum += number
             SignsEnum.MULTIPLY.sign -> sum *= number
             SignsEnum.SUBTRACT.sign -> sum -= number
             SignsEnum.DIVIDE.sign -> sum /= number
             SignsEnum.MODULE.sign -> sum %= number
         }
-        println(round(sum))
+        return sum
     }
 }
 

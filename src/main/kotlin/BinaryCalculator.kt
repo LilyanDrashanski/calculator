@@ -1,25 +1,16 @@
+class BinaryCalculator() {
 
-class BinaryCalculator : Calculators {
-    override fun calculate() {
+    fun calculate(string: String) {
 
-        println("\nEnter the value you want to be converted to binary")
-        val input = readln()
+        val numbers: MutableList<Int> = mutableListOf()
 
+        for (char in string) {
+            numbers.add(char.code)
+        }
 
-        require(input !=""){"End of program"}
-
-        try {
-            val number = input.toInt()
-            println(Integer.toBinaryString(number))
-        } catch (e: Exception) {
-
-            for (char in input) {
-
-                val asciiValue = char.code
-
-                print("${Integer.toBinaryString(asciiValue)} ")
-            }
-
+        for (number in numbers) {
+            print("${Integer.toBinaryString(number)} ")
         }
     }
+
 }

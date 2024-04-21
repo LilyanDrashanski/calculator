@@ -1,5 +1,0 @@
-interface Calculators {
-
-    fun calculate()
-
-}

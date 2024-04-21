@@ -1,14 +1,12 @@
-import kotlin.math.sign
-import kotlin.system.exitProcess
-
-class SignInput {
+class OperatorInput {
     fun input(): String {
         val signs = arrayOf("+", "-", "*", "/","%")
-        println("Enter sign")
+        println("Enter an operator")
 
         val sign = readln()
 
-        require(sign != ""){"End of program"}
+
+        require(sign != "q"){"End of program"}
 
 
         return when (sign) {

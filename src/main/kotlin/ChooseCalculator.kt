@@ -1,26 +1,24 @@
-import kotlin.system.exitProcess
 
 class ChooseCalculator {
 
-    fun calculatorType(): Calculators {
+    fun calculatorType(): CalculatorEnum {
 
         val calculators = arrayOf("BINARY", "NUMERICAL")
 
         println("\nEnter type of calculator you want to use")
         println("Options: ${calculators.joinToString(", ")}")
 
-        var input = readln().uppercase()
+        val input = readln().uppercase()
 
-        require(input != "") { "End of program" }
+        require(input != "q") { "End of program" }
 
         return when (input) {
-            "BINARY" -> BinaryCalculator()
-            "NUMERICAL" -> NumericalCalculator()
+            "BINARY" -> CalculatorEnum.BINARY
+            "NUMERICAL" -> CalculatorEnum.NUMERICAL
             else -> {
                 println("Invalid Choice")
                 calculatorType()
             }
-
         }
     }
 }
