@@ -1,3 +1,5 @@
+package Calculator
+
 class NumberInput {
 
     fun input(): Double {

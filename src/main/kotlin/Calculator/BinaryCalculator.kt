@@ -1,3 +1,5 @@
+package Calculator
+
 class BinaryCalculator {
 
     fun calculate(string: String): MutableList<String> {

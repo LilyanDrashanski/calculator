@@ -1,3 +1,5 @@
+import Calculator.*
+
 fun main() {
 
     println("To exit press q")

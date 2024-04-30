@@ -1,64 +1,49 @@
 package calculator
 
-import NumericalCalculator
+import Calculator.NumericalCalculator
+import Calculator.OperatorEnum
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.Arguments
+import org.junit.jupiter.params.provider.MethodSource
 
 
 class NumericalCalculatorTest {
-    @Test
-    fun additionTest() {
-        val calculator = NumericalCalculator()
 
-        val result = calculator.calculate(2.00, "+", 2.00)
-        assertEquals(4.00, result)
-    }
-
-    @Test
-    fun subtractionTest() {
-        val calculator = NumericalCalculator()
-
-        val result = calculator.calculate(6.00, "-", 4.00)
-        assertEquals(-2.00, result)
-    }
-
-    @Test
-    fun divisionTest() {
-        val calculator = NumericalCalculator()
-
-        val result = calculator.calculate(2.00, "/", 8.00)
-        assertEquals(4.00, result)
+    companion object {
+        @JvmStatic
+        fun operations(): List<Arguments> {
+            return listOf(
+                Arguments.of(6.00, OperatorEnum.SUBTRACT, 4.00, -2.00),
+                Arguments.of(2.00, OperatorEnum.ADD, 2.00, 4.00),
+                Arguments.of(2.00, OperatorEnum.DIVIDE, 8.00, 4.00),
+                Arguments.of(2.00, OperatorEnum.MODULE, 5.00, 1.00),
+                Arguments.of(2.00, OperatorEnum.MULTIPLY, 2.00, 4.00)
+            )
+        }
     }
 
 
-    @Test
-    fun multiplicationTest() {
-        val calculator = NumericalCalculator()
+    private val calculator = NumericalCalculator()
 
-        val result = calculator.calculate(2.00, "*", 2.00)
-        assertEquals(4.00, result)
+    @ParameterizedTest
+    @MethodSource("operations")
+    fun allOperations(number: Double, operator: OperatorEnum, previousResult: Double, expectedResult: Double) {
+
+        val result = calculator.calculate(number, operator, previousResult)
+        assertEquals(expectedResult, result)
     }
+
 
     @Test
     fun multipleOperationsTest() {
-        val calculator = NumericalCalculator()
 
-        var result = calculator.calculate(2.00, "*", 2.00)
-        result = calculator.calculate(2.00, "-", result)
-        result = calculator.calculate(2.00, "/", result)
-        result = calculator.calculate(2.00, "+", result)
-        result = calculator.calculate(2.00, "%", result)
-
-
-        assertEquals(1.00, result)
-    }
-
-    @Test
-    fun moduleTest() {
-        val calculator = NumericalCalculator()
-
-        val result = calculator.calculate(2.00, "%", 5.00)
-
+        var result = calculator.calculate(2.00, OperatorEnum.MULTIPLY, 2.00)
+        result = calculator.calculate(2.00, OperatorEnum.SUBTRACT, result)
+        result = calculator.calculate(2.00, OperatorEnum.DIVIDE, result)
+        result = calculator.calculate(2.00, OperatorEnum.ADD, result)
+        result = calculator.calculate(2.00, OperatorEnum.MODULE, result)
         assertEquals(1.00, result)
     }
 

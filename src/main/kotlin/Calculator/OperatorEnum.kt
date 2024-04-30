@@ -1,4 +1,6 @@
-enum class SignsEnum(val sign: String) {
+package Calculator
+
+enum class OperatorEnum(val operator: String) {
     ADD("+"),
     MULTIPLY("*"),
     SUBTRACT("-"),

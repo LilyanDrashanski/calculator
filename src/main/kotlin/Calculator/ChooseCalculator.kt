@@ -1,9 +1,10 @@
+package Calculator
 
 class ChooseCalculator {
 
     fun calculatorType(): CalculatorEnum {
 
-        val calculators = arrayOf("BINARY", "NUMERICAL")
+        val calculators = CalculatorEnum.values()
 
         println("\nEnter type of calculator you want to use")
         println("Options: ${calculators.joinToString(", ")}")
