@@ -1,4 +1,4 @@
-package Calculator
+package calculator
 
 enum class OperatorEnum(val operator: String) {
     ADD("+"),

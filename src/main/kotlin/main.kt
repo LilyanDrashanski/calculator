@@ -1,8 +1,8 @@
-import Calculator.*
+import calculator.*
 
 fun main() {
 
-    println("To exit press q")
+    println("To exit press 'Enter'")
 
     when (ChooseCalculator().calculatorType()) {
 
@@ -10,25 +10,27 @@ fun main() {
             while (true) {
 
                 println("\nEnter the string you want to be converted to binary")
-                val str = readln()
-                require(str != "q") { "End of program" }
+                val input = readln()
+                require(input != "") { "End of program" }
 
+                val binaryValue = BinaryCalculator().calculate(input)
+                println(binaryValue)
 
-                val binaryList = BinaryCalculator().calculate(str)
-
-                val binaryString = binaryList.joinToString(" ")
-                println(binaryString.trim())
             }
         }
 
         CalculatorEnum.NUMERICAL -> {
 
-            var result = NumberInput().input()
+            println("Enter a number")
+            var result = NumberInputValidations().input(readln())
 
             while (true) {
 
-                val operator = OperatorInput().input()
-                val number = NumberInput().input()
+                println("Enter an operator")
+                val operator = OperatorInputValidations().input(readln())
+
+                println("Enter a number")
+                val number = NumberInputValidations().input(readln())
 
                 result = NumericalCalculator().calculate(number, operator, result)
                 println(result)

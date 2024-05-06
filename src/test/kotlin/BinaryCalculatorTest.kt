@@ -1,6 +1,5 @@
 package calculator
 
-import Calculator.BinaryCalculator
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
@@ -10,6 +9,6 @@ class BinaryCalculatorTest() {
         val calculator = BinaryCalculator()
 
         val result = calculator.calculate("apple").toString()
-        Assertions.assertEquals(mutableListOf(1100001, 1110000, 1110000, 1101100, 1100101).toString(), result)
+        Assertions.assertEquals("1100001 1110000 1110000 1101100 1100101", result)
     }
 }

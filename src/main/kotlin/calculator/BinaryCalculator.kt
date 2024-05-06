@@ -1,8 +1,8 @@
-package Calculator
+package calculator
 
 class BinaryCalculator {
 
-    fun calculate(string: String): MutableList<String> {
+    fun calculate(string: String): String {
 
         val numbers: MutableList<Int> = mutableListOf()
         val binary: MutableList<String> = mutableListOf()
@@ -15,6 +15,6 @@ class BinaryCalculator {
             binary.add(Integer.toBinaryString(number))
         }
 
-        return binary
+        return binary.joinToString(" ").trim()
     }
 }
