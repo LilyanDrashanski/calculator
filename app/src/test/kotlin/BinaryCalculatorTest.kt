@@ -1,6 +1,6 @@
 package calculator
 
-import org.example.calculator.BinaryCalculator
+import calculator.BinaryCalculator
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

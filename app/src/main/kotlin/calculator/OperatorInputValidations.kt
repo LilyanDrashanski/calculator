@@ -2,7 +2,7 @@ package calculator
 
 class OperatorInputValidations {
     fun input(operatorInput: String): OperatorEnum {
-        val operatorsList = OperatorEnum.values()
+        val operatorsList = OperatorEnum.entries.toTypedArray()
 
         require(operatorInput != "") { "End of program" }
 

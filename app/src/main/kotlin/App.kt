@@ -1,7 +1,5 @@
-package org.example
+import calculator.*
 
-import org.example.calculator.ChooseCalculator
-import org.example.calculator.*
 
 fun main() {
 

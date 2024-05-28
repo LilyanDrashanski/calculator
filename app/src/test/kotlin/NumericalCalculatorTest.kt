@@ -1,7 +1,7 @@
 package calculator
 
-import org.example.calculator.NumericalCalculator
-import org.example.calculator.OperatorEnum
+import calculator.NumericalCalculator
+import calculator.OperatorEnum
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest

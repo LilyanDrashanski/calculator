@@ -1,4 +1,4 @@
-package org.example.calculator
+package calculator
 
 class ChooseCalculator {
 
