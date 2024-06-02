@@ -1,13 +1,13 @@
 package calculator
 
-class BinaryCalculator {
+class BinaryCalculator(val value: String) {
 
-    fun calculate(string: String): String {
+    fun calculate(): String {
 
         val numbers: MutableList<Int> = mutableListOf()
         val binary: MutableList<String> = mutableListOf()
 
-        for (char in string) {
+        for (char in value) {
             numbers.add(char.code)
         }
 

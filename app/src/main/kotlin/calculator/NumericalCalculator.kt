@@ -1,20 +1,20 @@
 package calculator
 
-class NumericalCalculator {
+class NumericalCalculator(private val number: String, private val operator: OperatorEnum, private val number2: String) {
 
 
-    fun calculate(number: Double, operator: OperatorEnum, previousResult: Double): Double {
+    fun calculate(): Double {
 
-        var sum = previousResult
+        val dNumber = NumberInputValidations().input(number)
+        val dNumber2 = NumberInputValidations().input(number2)
 
-        when (operator) {
-            OperatorEnum.ADD -> sum += number
-            OperatorEnum.MULTIPLY -> sum *= number
-            OperatorEnum.SUBTRACT -> sum -= number
-            OperatorEnum.DIVIDE -> sum /= number
-            OperatorEnum.MODULE -> sum %= number
+        return when (operator) {
+            OperatorEnum.ADD -> dNumber + dNumber2
+            OperatorEnum.MULTIPLY -> dNumber * dNumber2
+            OperatorEnum.SUBTRACT -> dNumber - dNumber2
+            OperatorEnum.DIVIDE -> dNumber / dNumber2
+            OperatorEnum.MODULE -> dNumber % dNumber2
         }
-        return sum
     }
 }
 

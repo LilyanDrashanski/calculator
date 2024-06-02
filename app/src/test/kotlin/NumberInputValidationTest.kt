@@ -1,5 +1,3 @@
-package calculator
-
 import calculator.NumberInputValidations
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.params.ParameterizedTest
